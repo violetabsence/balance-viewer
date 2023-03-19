@@ -21,6 +21,7 @@ namespace BalanceViewer.Migrations
                     DateFrom = table.Column<DateTime>(type: "TEXT", nullable: false),
                     DateTo = table.Column<DateTime>(type: "TEXT", nullable: false),
                     InBalance = table.Column<double>(type: "REAL", nullable: false),
+                    OutBalance = table.Column<double>(type: "REAL", nullable: false),
                     Calculation = table.Column<double>(type: "REAL", nullable: false)
                 },
                 constraints: table =>

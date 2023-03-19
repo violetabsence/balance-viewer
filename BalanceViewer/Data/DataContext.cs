@@ -8,7 +8,6 @@ namespace BalanceViewer.Data
         public DataContext(DbContextOptions<DataContext> options)
             : base(options)
         {
-            
         }
 
         public DbSet<Balance> Balance { get; set; }

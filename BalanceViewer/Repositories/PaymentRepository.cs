@@ -13,9 +13,9 @@ namespace BalanceViewer.Repositories
             _context = context;
         }
 
-        public async Task<List<Payment>> GetPaymentsByAccountIdAsync(int accountId)
+        public Task<List<Payment>> GetPaymentsByAccountIdAsync(int accountId)
         {
-            var payments = await _context.Payments.Where(x => x.AccountId == accountId).ToListAsync();
+            var payments = _context.Payments.Where(x => x.AccountId == accountId).ToListAsync();
             return payments;
         }
 

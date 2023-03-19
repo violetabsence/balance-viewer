@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BalanceViewer.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230319122755_Initial")]
+    [Migration("20230319195614_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -39,6 +39,9 @@ namespace BalanceViewer.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<double>("InBalance")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("OutBalance")
                         .HasColumnType("REAL");
 
                     b.HasKey("Id");

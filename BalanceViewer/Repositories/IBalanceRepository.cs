@@ -6,7 +6,6 @@ namespace BalanceViewer.Repositories
     {
         Task<List<Balance>> GetBalanceByAccountIdAsync(int accountId);
         Task InsertBalanceAsync(Balance balance);
-
         Task UpdateBalanceAsync(Balance balance);
     }
 }

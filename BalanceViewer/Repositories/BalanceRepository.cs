@@ -14,9 +14,9 @@ namespace BalanceViewer.Repositories
             _context = context;
         }
 
-        public async Task<List<Balance>> GetBalanceByAccountIdAsync(int accountId)
+        public Task<List<Balance>> GetBalanceByAccountIdAsync(int accountId)
         {
-            var balances = await _context.Balance.Where(x => x.AccountId == accountId).OrderBy(x => x.DateFrom).ToListAsync();
+            var balances = _context.Balance.Where(x => x.AccountId == accountId).ToListAsync();
             return balances;
         }
 
@@ -28,7 +28,8 @@ namespace BalanceViewer.Repositories
 
         public async Task UpdateBalanceAsync(Balance balance)
         {
-            _context.Entry(balance).State = EntityState.Modified;
+            var entry = _context.Entry(balance);
+            entry.State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }
     }
